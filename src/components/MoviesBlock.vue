@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="getMovies">Запросить фильмы</button>
     <div class="movies-block" >
       <MovieCard v-for="movie in myMovies" :key="movie.id" :movie="movie"/>
     </div>
@@ -55,8 +54,10 @@ export default {
 
 <style lang="scss">
   .movies-block {
-    display: flex;
-    flex-wrap: wrap;
+    padding-top: 80px;
+    padding-bottom: 120px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
   }
 </style>

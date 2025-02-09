@@ -1,8 +1,5 @@
 <template>
-  <div class="app1">
     <BaseLayout/>
-  </div>
-  
 </template>
 
 
@@ -23,8 +20,5 @@ export default {
 
 
 <style lang="scss" scoped>
-.app1 {
-  width: 100vw;
-  height: 100vh;
-}
+
 </style>

@@ -1,11 +1,10 @@
 <template>
-  <main>
-    <slot></slot>
-  </main>
+    <h1>Главная страница</h1>
 </template>
 <script>
+
 export default {
-  name: 'AppContent'
+  name: 'MainPage',
 }
 </script>
 <style lang="">

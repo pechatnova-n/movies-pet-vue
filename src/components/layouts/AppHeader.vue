@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    хедер
+    <div class="header__content">
+      Хедер
+    </div>
   </header>
 </template>
 
@@ -15,6 +17,14 @@ export default {
     width: 100%;
     height: 80px;
     background: #15202C;
+
+    &__content {
+      width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
 
   }
 </style>

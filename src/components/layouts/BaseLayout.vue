@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
     <AppHeader/>
-    <AppContent class="content">
-      <MoviesBlock/>
-    </AppContent>
+    <div class="content">
+      <RouterView></RouterView>
+    </div>
     <AppFooter />
 </div>
 </template>
@@ -12,13 +12,11 @@
 
 <script>
 import AppFooter from './AppFooter.vue';
-import AppHeader from './AppHeader.vue';
-import AppContent from './AppContent.vue';  
-import MoviesBlock from '../MoviesBlock.vue';
+import AppHeader from './AppHeader.vue'; 
 
 export default {
   name: 'BaseLayout',
-  components: { AppHeader, AppContent, AppFooter,  MoviesBlock }
+  components: { AppHeader, AppFooter }
 }
 </script>
 <style lang="scss" scoped>
@@ -27,10 +25,12 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow: auto;
   }
 
   .content {
     flex-grow: 1;
+    height: 100%;
+    width: 1200px;
+    margin: 0 auto;
   }
 </style>
