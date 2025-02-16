@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <div class="header__content">
-      Хедер
+      <router-link :to="{name: 'actors'}" >Актеры</router-link>
+      <router-link :to="{name: 'movies'}" >Фильмы</router-link>
+      <router-link :to="{name: 'contacts'}" >Контакты</router-link>
     </div>
   </header>
 </template>
@@ -24,6 +26,12 @@ export default {
       display: flex;
       align-items: center;
       height: 100%;
+      gap: 40px;
+      justify-content: center;
+      
+      a {
+        color: #fff;
+      }
     }
 
   }
