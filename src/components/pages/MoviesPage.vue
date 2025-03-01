@@ -11,6 +11,7 @@ import SearchMovies from '../SearchMovies.vue';
 export default {
   name: 'MoviesPage',
   components: { MoviesBlock, SearchMovies}
+
 }
 </script>
 

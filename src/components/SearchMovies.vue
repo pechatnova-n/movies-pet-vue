@@ -1,14 +1,15 @@
 <template>
   <div class="search">
     <div class="search__block">
-      <InputApp modelValue="value" :placeholder="'Введите название фильма'"/>
-      <ButtonApp>Найти</ButtonApp>
+      <InputApp type="text" v-model="searchText" placeholder="Введите название фильма" @keyup.enter="findMovie"/>
+      <ButtonApp :type="button" @click="findMovie">Найти</ButtonApp>
     </div>
     <div class="search__filter">Фильтрация</div>
   </div>
 </template>
 
 <script>
+import { useMoviesStore } from '@/stores/MoviesStore';
 import ButtonApp from './ButtonApp.vue';
 import InputApp from './InputApp.vue';
 
@@ -17,7 +18,13 @@ export default {
   components: { ButtonApp, InputApp },
   data() {
     return {
-      value: ''
+      searchText: ''
+    }
+  },
+  methods: {
+    findMovie() {
+      const moviesStore = useMoviesStore()
+      moviesStore.findMovie(this.searchText)
     }
   }
 }

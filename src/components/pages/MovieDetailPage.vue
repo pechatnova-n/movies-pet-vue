@@ -1,6 +1,8 @@
 <template>
   <div class="movie-detail">
-    <div class="movie-detail__image">
+    <button-app @click="$router.go(-1)">Назад</button-app>
+    <div class="movie-detail__inner">
+      <div class="movie-detail__image">
       <img :src="currentMovie.posterUrl" :alt="currentMovie.nameRu" />
     </div>
     <div class="movie-detail__info">
@@ -16,15 +18,18 @@
 
       <ActorsList />
     </div>
+    </div>
+    
   </div>
 </template>
 
 <script>
 import ActorsList from '../ActorsList.vue';
+import ButtonApp from '../ButtonApp.vue';
 
 export default {
   name: 'MovieDetailPage',
-  components: { ActorsList},
+  components: { ActorsList, ButtonApp},
   data() {
     return {
       currentMovie: {},
@@ -78,10 +83,16 @@ export default {
 
 <style lang="scss">
 .movie-detail {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding-top: 40px;
   padding-bottom: 80px;
-  gap: 40px;
+  &__inner {
+    display: flex;
+    gap: 40px;
+  }
   &__image {
     img {
       width: 280px;

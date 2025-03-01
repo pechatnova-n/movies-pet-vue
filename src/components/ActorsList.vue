@@ -5,7 +5,9 @@
     }}</ButtonApp>
     <Transition name="slide-fade">
       <div v-show="isShowActors" class="actors-block__actors">
-        <ActorCard v-for="actor in this.actors" :key="actor.id" :actor="actor" />
+        <div v-if="actors.length === 0">Список актеров пуст</div>
+        <ActorCard v-else v-for="actor in this.actors" :key="actor.id" :actor="actor" />
+        
       </div>
     </Transition>
   </div>

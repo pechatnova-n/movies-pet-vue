@@ -21,12 +21,11 @@ export default {
     },
     errorMessage: {
       type: String,
-      default: 'Введите корректное значение'
     }
   },
   data() {
     return {
-      //isError: false
+      
     }
   },
   emits: ['update:modelValue']
@@ -36,11 +35,8 @@ export default {
 
 <style lang="scss">
   .input {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #000;
-      gap: 20px;
+    position: relative;
+    color: #000;
 
       input {
         width: 350px;
@@ -55,6 +51,9 @@ export default {
       }
 
       &__error {
+        position: absolute;
+        top: 100%;
+        left: 0;
         color: red;
       }
     }

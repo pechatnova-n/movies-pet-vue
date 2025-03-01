@@ -20,14 +20,17 @@ export default {
       default: 'Введите корректное значение'
     }
   },
+    data() {
+    return {
+      
+    }
+  },
   emits: ['update:modelValue'],
 }
 </script>
 <style lang="scss">
   .textarea {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: relative;
       color: #000;
       gap: 20px;
 
@@ -45,6 +48,9 @@ export default {
 
       &__error {
         color: red;
+        position: absolute;
+        top: 100%;
+        left: 0;
       }
     }
 </style>
