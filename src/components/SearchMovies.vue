@@ -35,6 +35,7 @@ export default {
     display: flex;
       justify-content: space-between;
       margin-top: 40px;
+      margin-bottom: 40px;
     &__block {
       display: flex;
       gap: 20px;

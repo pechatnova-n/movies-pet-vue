@@ -1,8 +1,9 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <router-link :to="{name: 'actors'}" >Актеры</router-link>
+      <router-link :to="{name: 'premiers'}" >Премьеры</router-link>
       <router-link :to="{name: 'movies'}" >Фильмы</router-link>
+      <router-link :to="{name: 'actors'}" >Актеры</router-link>
       <router-link :to="{name: 'contacts'}" >Контакты</router-link>
     </div>
   </header>
@@ -31,6 +32,12 @@ export default {
       
       a {
         color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 0.5;
+        }
       }
     }
 

@@ -97,7 +97,7 @@ export default {
 
 <style lang="scss">
   .movies-block {
-    padding-top: 80px;
+    padding-top: 20px;
     padding-bottom: 120px;
 
     &__full {

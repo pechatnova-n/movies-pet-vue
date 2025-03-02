@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainPage from '../components/pages/MainPage.vue'
-import MoviesPage from '../components/pages/MoviesPage.vue'
+import MainPage from '../components/pages/PremiersPage.vue'
+import MoviesPage from '../components/pages/MainPage1.vue'
 import MovieDetailPage from '../components/pages/MovieDetailPage.vue'
 import ActorsPage from '../components/pages/ActorsPage.vue'
 import NotFoundPage from '../components/pages/NotFoundPage.vue'
@@ -10,13 +10,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      redirect: '/movies',
+      path: '/premiers',
+      name: 'premiers',
       component: MainPage,
     },
     {
-      path: '/movies',
+      path: '/',
       name: 'movies',
       component: MoviesPage,
     },
@@ -35,10 +34,10 @@ const router = createRouter({
       component: ContactsPage,
     },
     {
-      path: '/:pathMatch(.*)*', 
-      name: 'not-found', 
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
       component: NotFoundPage,
-    }
+    },
   ],
 })
 
