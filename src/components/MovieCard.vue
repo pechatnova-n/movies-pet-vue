@@ -23,18 +23,27 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .movie {
+    $comp: &;
     position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
       img {
         box-shadow: 0px 0px 12px 0px rgba(227, 230, 232, 0.4);
       }
+      #{$comp}__name {
+        color: #4e749c;
+      }
     }
     &__name {
+      text-align: center;
+      margin-top: 10px;
       color: #fff;
       font: 16px/20px 'Arial', sans-serif;
+      transition: all 0.3s ease-in-out;
     }
 
     img {

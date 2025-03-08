@@ -9,6 +9,6 @@ export default {
   name: 'NotFoundPage',
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   
 </style>

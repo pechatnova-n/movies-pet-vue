@@ -28,7 +28,7 @@ export default {
   emits: ['update:modelValue'],
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .textarea {
       position: relative;
       color: #000;

@@ -69,7 +69,6 @@ export default {
         })
           .then((res) => res.json())
           .then((json) => {
-            //console.log(json);
             this.currentMovie = json
           })
           .catch((err) => console.log(err))
@@ -81,7 +80,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .movie-detail {
   position: relative;
   display: flex;

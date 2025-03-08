@@ -13,7 +13,7 @@
     </div>
 
     <Transition name="fade" mode="out-in">
-      <PremiersMovies :premieres="premieres" :key="activeIndex" />
+      <PremiersMovies :premieres="premieres" :key="activeIndex" :isLoading="isLoading" />
     </Transition>
   </div>
 </template>
@@ -43,20 +43,24 @@ export default {
         { id: 10, title: 'Ноябрь', month: 'NOVEMBER' },
         { id: 11, title: 'Декабрь', month: 'DECEMBER' },
       ],
+      isLoading: true
     }
   },
   mounted() {
     const moviesStore = useMoviesStore()
     moviesStore.getPremiers(this.months[this.activeIndex].month).then(() => {
       this.premieres = moviesStore.premieres
+      this.isLoading = false
     })
   },
   methods: {
     changeActiveMonth(index) {
+      this.isLoading = true
       this.activeIndex = index
       const moviesStore = useMoviesStore()
       moviesStore.getPremiers(this.months[this.activeIndex].month).then(() => {
         this.premieres = moviesStore.premieres
+        this.isLoading = false
       })
     },
   },

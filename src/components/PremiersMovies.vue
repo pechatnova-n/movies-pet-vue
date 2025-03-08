@@ -1,7 +1,9 @@
 <template>
   <div class="premiers">
-    <swiper 
-    class="premiers__block"
+    <loader-app v-if="isLoading" />
+    <swiper
+      class="premiers__block"
+      v-else
       :modules="modules"
       :slides-per-view="3"
       :space-between="30"
@@ -11,24 +13,24 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
-    <swiper-slide v-for="movie in premieres" :key="movie.id">
+      <swiper-slide v-for="movie in premieres" :key="movie.id">
         <PremierFilm :movie="movie" />
       </swiper-slide>
-  </swiper>
+    </swiper>
   </div>
 </template>
 
 
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
+import PremierFilm from './PremierFilm.vue'
+import LoaderApp from './LoaderApp.vue'
 
-
-import PremierFilm from './PremierFilm.vue';
 export default {
   name: 'PremiersMovies',
-  components: { PremierFilm, Swiper, SwiperSlide },
+  components: { PremierFilm, Swiper, SwiperSlide, LoaderApp },
   data() {
     return {
       modules: [Navigation, Pagination, Autoplay],
@@ -37,22 +39,34 @@ export default {
   props: {
     premieres: {
       type: Array,
-      required: true
+      required: true,
+    },
+    isLoading: {
+      type: Boolean,
+      default: true
     }
-  }
+  },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'swiper/swiper-bundle.css';
-  .swiper {
-    width: 100%;
-    height: 620px;
-  }
-.swiper-slide{
+
+.premiers {
+  width: 100%;
+  height: 620px;
+}
+.swiper {
+  width: 100%;
+  height: 620px;
+}
+.swiper-slide {
   height: 560px;
 }
-.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 0px;
 }
 </style>

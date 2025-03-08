@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainPage from '../components/pages/PremiersPage.vue'
-import MoviesPage from '../components/pages/MainPage1.vue'
+import PremiersPage from '../components/pages/PremiersPage.vue'
+import MoviesPage from '../components/pages/MoviesPage.vue'
 import MovieDetailPage from '../components/pages/MovieDetailPage.vue'
 import ActorsPage from '../components/pages/ActorsPage.vue'
 import NotFoundPage from '../components/pages/NotFoundPage.vue'
 import ContactsPage from '../components/pages/ContactsPage.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,20 +13,25 @@ const router = createRouter({
     {
       path: '/premiers',
       name: 'premiers',
-      component: MainPage,
+      component: PremiersPage,
     },
     {
       path: '/',
-      name: 'movies',
+      name: 'index',
       component: MoviesPage,
+    },
+    {
+      path: '/movies',
+      name: 'movies',
+      redirect: { name: 'index' },
     },
     {
       path: '/movies/:id',
       component: MovieDetailPage,
     },
     {
-      path: '/actors',
       name: 'actors',
+      path: '/actors',
       component: ActorsPage,
     },
     {

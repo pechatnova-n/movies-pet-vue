@@ -95,7 +95,7 @@ export default {
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
   .movies-block {
     padding-top: 20px;
     padding-bottom: 120px;
