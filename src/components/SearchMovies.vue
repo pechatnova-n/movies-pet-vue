@@ -1,45 +1,53 @@
 <template>
   <div class="search">
     <div class="search__block">
-      <InputApp type="text" v-model="searchText" placeholder="Введите название фильма" @keyup.enter="findMovie"/>
-      <ButtonApp :type="button" @click="findMovie">Найти</ButtonApp>
+      <InputApp
+        type="text"
+        v-model="searchText"
+        placeholder="Введите название фильма"
+        @keyup.enter="handleSearch"
+      />
+      <ButtonApp :type="button" @click="handleSearch">Найти</ButtonApp>
     </div>
-    <div class="search__filter">Фильтрация</div>
+    <ButtonApp :type="button" @click="resetSearch">Показать все фильмы</ButtonApp>
   </div>
 </template>
 
 <script>
-import { useMoviesStore } from '@/stores/MoviesStore';
-import ButtonApp from './ButtonApp.vue';
-import InputApp from './InputApp.vue';
+//import { useMoviesStore } from '@/stores/MoviesStore';
+import ButtonApp from './ButtonApp.vue'
+import InputApp from './InputApp.vue'
 
 export default {
   name: 'SearchMovies',
   components: { ButtonApp, InputApp },
+  emits: ['search', 'reset'],
   data() {
     return {
-      searchText: ''
+      searchText: '',
     }
   },
   methods: {
-    findMovie() {
-      const moviesStore = useMoviesStore()
-      moviesStore.findMovie(this.searchText)
-    }
-  }
+    handleSearch() {
+      this.$emit('search', this.searchText)
+      this.searchText = ''
+    },
+    resetSearch() {
+      this.$emit('reset', this.searchText)
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .search {
+.search {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  &__block {
     display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      margin-bottom: 40px;
-    &__block {
-      display: flex;
-      gap: 20px;
-    }
-    
+    gap: 12px;
   }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="actor">
+  <router-link :to="actorRoute" class="actor">
     <div class="actor__photo">
       <img :src=actor.posterUrl :alt="actor.nameRu ? actor.nameRu : actor.nameEn">
     </div>
@@ -9,7 +9,7 @@
       <span v-if="actor.description"> ({{actor.description ? actor.description  : ''}})</span>
     </div>
     
-  </div>
+  </router-link >
 </template>
 
 <script>
@@ -21,20 +21,33 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      
+  computed: {
+    actorRoute() {
+      return {
+        name: 'actors',
+        params: {
+          id: this.actor.staffId
+        },
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
   .actor {
     display: flex;
     flex-direction: column;
     gap: 8px;
     width: 127px;
+    &:hover {
+      .actor__name {
+        color: #4e749c;
+      }
+    }
 
     &__photo {
       width: 127px;
@@ -53,6 +66,7 @@ export default {
       color: #fff;
       font: 14px/18px 'Arial', sans-serif;
       text-align: center;
+      transition: all 0.3s ease-in-out;
     }
   }
 </style>

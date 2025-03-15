@@ -1,7 +1,8 @@
 <template>
   <footer class="footer">
       <div class="footer__content">
-        Футер
+        <p>Сайт с фильмами</p>
+        <p>© 2025</p>
       </div>
   </footer>
 </template>
@@ -21,6 +22,7 @@ export default {
       margin: 0 auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       height: 100%;
     }
 

@@ -5,7 +5,9 @@ import MovieDetailPage from '../components/pages/MovieDetailPage.vue'
 import ActorsPage from '../components/pages/ActorsPage.vue'
 import NotFoundPage from '../components/pages/NotFoundPage.vue'
 import ContactsPage from '../components/pages/ContactsPage.vue'
-
+import ActorFilms from '@/components/ActorFilms.vue'
+import ActorPersonalLife from '@/components/ActorPersonalLife.vue'
+import ActorFacts from '@/components/ActorFacts.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,8 +33,26 @@ const router = createRouter({
     },
     {
       name: 'actors',
-      path: '/actors',
+      path: '/actors/:id',
       component: ActorsPage,
+      redirect: { name: 'films' },
+      children: [
+        {
+          path: 'films',
+          component: ActorFilms,
+          name: 'films',
+        },
+        {
+          path: 'personal-life',
+          component: ActorPersonalLife,
+          name: 'personal-life',
+        },
+        {
+          path: 'facts',
+          component: ActorFacts,
+          name: 'facts',
+        },
+      ],
     },
     {
       path: '/contacts',
