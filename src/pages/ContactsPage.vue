@@ -1,35 +1,37 @@
 <template>
-  <div class="contacts">
-    <h1>Контакты</h1>
-    <p class="contacts__text">
-      Если у Вас есть пожелания и предложения по улучшению сервиса, пожалуйста, напишите нам
-    </p>
-    <form @submit.prevent="handleSubmit" class="contacts__form">
-      <InputApp
-        type="text"
-        placeholder="Введите ваше имя"
-        v-model="formData.name"
-        :error-message="errorMessages.name"
-      />
-      <InputApp
-        type="email"
-        placeholder="Введите ваш e-mail"
-        v-model="formData.email"
-        :error-message="errorMessages.email"
-      />
-      <TextareaApp
-        placeholder="Введите ваше сообщение"
-        v-model="formData.message"
-        :error-message="errorMessages.message"
-      />
+  <base-layout>
+    <div class="contacts">
+      <h1>Контакты</h1>
+      <p class="contacts__text">
+        Если у Вас есть пожелания и предложения по улучшению сервиса, пожалуйста, напишите нам
+      </p>
+      <form @submit.prevent="handleSubmit" class="contacts__form">
+        <InputApp
+          type="text"
+          placeholder="Введите ваше имя"
+          v-model="formData.name"
+          :error-message="errorMessages.name"
+        />
+        <InputApp
+          type="email"
+          placeholder="Введите ваш e-mail"
+          v-model="formData.email"
+          :error-message="errorMessages.email"
+        />
+        <TextareaApp
+          placeholder="Введите ваше сообщение"
+          v-model="formData.message"
+          :error-message="errorMessages.message"
+        />
 
-      <ButtonApp type="submit" width="140">Отправить</ButtonApp>
-    </form>
-    <ModalApp v-if="isModalVisible" :is-visible="isModalVisible" @close="closeModal">
-      <template #title>Ваше сообщение отправлено!</template>
-      <template #default>Мы свяжемся с Вами ближайшее время</template>
-    </ModalApp>
-  </div>
+        <ButtonApp type="submit" width="140">Отправить</ButtonApp>
+      </form>
+      <ModalApp v-if="isModalVisible" :is-visible="isModalVisible" @close="closeModal">
+        <template #title>Ваше сообщение отправлено!</template>
+        <template #default>Мы свяжемся с Вами ближайшее время</template>
+      </ModalApp>
+    </div>
+  </base-layout>
 </template>
 
 <script>
@@ -37,8 +39,9 @@ import ButtonApp from '/src/shared/components/ButtonApp.vue'
 import InputApp from '/src/shared/components/InputApp.vue'
 import ModalApp from '/src/entities/ModalApp.vue'
 import TextareaApp from '/src/shared/components/TextareaApp.vue'
+import BaseLayout from '@/shared/layouts/BaseLayout.vue'
 export default {
-  components: { ButtonApp, InputApp, TextareaApp, ModalApp },
+  components: { ButtonApp, InputApp, TextareaApp, ModalApp, BaseLayout },
   name: 'ContactsPage',
 
   data() {

@@ -48,7 +48,6 @@ export default {
     const moviesStore = useMoviesStore()
     await moviesStore.getAllMovies()
     this.$emit('changeLoading', false)
-    //this.emptyResult = moviesStore.movies.length === 0;
   },
   computed: {
     movies() {

@@ -14,7 +14,6 @@
 </template>
 
 <script>
-//import { useMoviesStore } from '@/stores/MoviesStore';
 import ButtonApp from '/src/shared/components/ButtonApp.vue'
 import InputApp from '/src/shared/components/InputApp.vue'
 

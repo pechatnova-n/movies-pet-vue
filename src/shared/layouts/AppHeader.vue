@@ -8,6 +8,7 @@
         <router-link :to="{name: 'premiers'}" >Премьеры</router-link>
         <router-link :to="{name: 'movies'}" >Фильмы</router-link>
         <router-link :to="{name: 'contacts'}" >Контакты</router-link>
+        <router-link :to="{name: 'information'}" >Информация</router-link>
       </div>
     </div>
   </header>

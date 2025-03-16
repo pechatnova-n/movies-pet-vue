@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     setActiveTab(routeName) {
-      this.$router.push({
+      this.$router.replace({
         name: routeName,
       })
     },

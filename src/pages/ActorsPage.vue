@@ -1,25 +1,27 @@
 <template>
-  <div class="actor-page">
-    <h1>Страница Актера</h1>
-    <button-app class="actor-page__back" @click="$router.go(-1)">Назад к фильму</button-app>
-    <loader-app v-if="isLoading" />
-    <div class="actor-page__person" v-else>
-      <div class="actor-page__photo">
-        <img :src="actor.posterUrl" :alt="actor.nameRu ? actor.nameRu : actor.nameEn" />
+  <base-layout>
+    <div class="actor-page">
+      <h1>Страница Актера</h1>
+      <button-app class="actor-page__back" @click="$router.go(-1)">Назад к фильму</button-app>
+      <loader-app v-if="isLoading" />
+      <div class="actor-page__person" v-else>
+        <div class="actor-page__photo">
+          <img :src="actor.posterUrl" :alt="actor.nameRu ? actor.nameRu : actor.nameEn" />
+        </div>
+        <div class="actor-page__text">
+          <h2>{{ actor.nameRu ? actor.nameRu : actor.nameEn }}</h2>
+          <p v-if="actor.profession">{{ actor.profession }}</p>
+          <p v-if="actor.birthday">Дата рождения: {{ actor.birthday }}</p>
+          <p v-if="actor.birthplace">Место рождения: {{ actor.birthplace }}</p>
+          <a :href="actor.webUrl" about="_blank">Сайт актера: {{ actor.webUrl }}</a>
+          <p v-if="actor.description">({{ actor.description ? actor.description : '' }})</p>
+        </div>
       </div>
-      <div class="actor-page__text">
-        <h2>{{ actor.nameRu ? actor.nameRu : actor.nameEn }}</h2>
-        <p v-if="actor.profession">{{ actor.profession }}</p>
-        <p v-if="actor.birthday">Дата рождения: {{ actor.birthday }}</p>
-        <p v-if="actor.birthplace">Место рождения: {{ actor.birthplace }}</p>
-        <a :href="actor.webUrl" about="_blank">Сайт актера: {{ actor.webUrl }}</a>
-        <p v-if="actor.description">({{ actor.description ? actor.description : '' }})</p>
-      </div>
+      <tabs-app class="actor-page__tab" :tabs="tabs">
+        <router-view></router-view>
+      </tabs-app>
     </div>
-    <tabs-app class="actor-page__tab" :tabs="tabs">
-      <router-view></router-view>
-    </tabs-app>
-  </div>
+  </base-layout>
 </template>
 
 <script>
@@ -27,9 +29,10 @@ import { useMoviesStore } from '@/app/stores/MoviesStore'
 import LoaderApp from '/src/shared/components/LoaderApp.vue'
 import TabsApp from '/src/entities/TabsApp.vue'
 import ButtonApp from '/src/shared/components/ButtonApp.vue'
+import BaseLayout from '@/shared/layouts/BaseLayout.vue'
 
 export default {
-  components: { LoaderApp, TabsApp, ButtonApp },
+  components: { LoaderApp, TabsApp, ButtonApp, BaseLayout },
   name: 'ActorsPage',
   data() {
     return {

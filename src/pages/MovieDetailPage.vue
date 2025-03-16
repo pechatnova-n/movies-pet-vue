@@ -1,34 +1,37 @@
 <template>
-  <div class="movie-detail">
-    <button-app @click="$router.go(-1)">Назад</button-app>
-    <div class="movie-detail__inner">
-      <div class="movie-detail__image">
-        <img :src="currentMovie.posterUrl" :alt="currentMovie.nameRu" />
-      </div>
-      <div class="movie-detail__info">
-        <div class="movie-detail__description">
-          <h2>{{ currentMovie.nameRu || currentMovie.nameOriginal }}</h2>
-          <p>Рейтинг на кинопоиске - {{ currentMovie.ratingKinopoisk }}</p>
-          <p v-if="genres" class="movie-detail__genres">Жанр: {{ genres }}</p>
-          <p>Страна: {{ countries }}</p>
-          <p>{{ currentMovie.description }}</p>
-          <p>Длительность: {{ currentMovie.filmLength }}</p>
-          <p>Год: {{ currentMovie.year }}</p>
+  <base-layout>
+    <div class="movie-detail">
+      <button-app @click="$router.go(-1)">Назад</button-app>
+      <div class="movie-detail__inner">
+        <div class="movie-detail__image">
+          <img :src="currentMovie.posterUrl" :alt="currentMovie.nameRu" />
         </div>
+        <div class="movie-detail__info">
+          <div class="movie-detail__description">
+            <h2>{{ currentMovie.nameRu || currentMovie.nameOriginal }}</h2>
+            <p>Рейтинг на кинопоиске - {{ currentMovie.ratingKinopoisk }}</p>
+            <p v-if="genres" class="movie-detail__genres">Жанр: {{ genres }}</p>
+            <p>Страна: {{ countries }}</p>
+            <p>{{ currentMovie.description }}</p>
+            <p>Длительность: {{ currentMovie.filmLength }}</p>
+            <p>Год: {{ currentMovie.year }}</p>
+          </div>
 
-        <ActorsList />
+          <ActorsList />
+        </div>
       </div>
     </div>
-  </div>
+  </base-layout>
 </template>
 
 <script>
 import ActorsList from '/src/widgets/ActorsList.vue'
 import ButtonApp from '/src/shared/components/ButtonApp.vue'
+import BaseLayout from '@/shared/layouts/BaseLayout.vue'
 
 export default {
   name: 'MovieDetailPage',
-  components: { ActorsList, ButtonApp },
+  components: { ActorsList, ButtonApp, BaseLayout },
   data() {
     return {
       currentMovie: {},

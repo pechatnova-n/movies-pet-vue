@@ -1,4 +1,5 @@
 <template>
+  <base-layout>
   <div class="premiers-page">
     <h1 class="premiers-page__title">Премьеры 2024 года</h1>
     <div class="premiers-page__line">
@@ -16,15 +17,17 @@
       <PremiersMovies :premieres="premieres" :key="activeIndex" :isLoading="isLoading" />
     </Transition>
   </div>
+  </base-layout>
 </template>
 
 <script>
 import { useMoviesStore } from '@/app/stores/MoviesStore'
 import PremiersMovies from '/src/widgets/PremiersMovies.vue'
 import ButtonApp from '/src/shared/components/ButtonApp.vue'
+import BaseLayout from '@/shared/layouts/BaseLayout.vue'
 export default {
   name: 'PremiersPage',
-  components: { PremiersMovies, ButtonApp },
+  components: { PremiersMovies, ButtonApp, BaseLayout },
   data() {
     return {
       premieres: [],

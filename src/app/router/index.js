@@ -8,6 +8,7 @@ import ContactsPage from '/src/pages/ContactsPage.vue'
 import ActorFilms from '@/features/actors/ActorFilms.vue'
 import ActorPersonalLife from '@/features/actors/ActorPersonalLife.vue'
 import ActorFacts from '@/features/actors/ActorFacts.vue'
+import InformationPage from '@/pages/InformationPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,6 +64,11 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: NotFoundPage,
+    },
+    {
+      path: '/information',
+      name: 'information',
+      component: InformationPage
     },
   ],
 })
