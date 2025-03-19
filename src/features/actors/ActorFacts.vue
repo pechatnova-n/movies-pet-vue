@@ -1,6 +1,6 @@
 <template>
   <div class="actor-facts">
-    <div v-if="localFacts.length > 0">
+    <div v-if="localFacts">
       <ul>
         <li v-for="fact in localFacts" :key="fact.id">{{ fact }}</li>
       </ul>

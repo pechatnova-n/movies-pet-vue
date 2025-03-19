@@ -21,12 +21,13 @@ const router = createRouter({
     {
       path: '/',
       name: 'index',
+      redirect: { name: 'movies' },
       component: MoviesPage,
     },
     {
       path: '/movies',
       name: 'movies',
-      redirect: { name: 'index' },
+      component: MoviesPage,
     },
     {
       path: '/movies/:id',
@@ -68,7 +69,7 @@ const router = createRouter({
     {
       path: '/information',
       name: 'information',
-      component: InformationPage
+      component: InformationPage,
     },
   ],
 })

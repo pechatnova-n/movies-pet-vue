@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
+  "homepage": "https://pechatnova-n.github.io/movies-pet-vue",
   "dependencies": {
     "pinia": "^2.3.1",
     "swiper": "^11.2.4",

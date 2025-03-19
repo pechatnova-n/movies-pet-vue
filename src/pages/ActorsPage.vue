@@ -13,7 +13,7 @@
           <p v-if="actor.profession">{{ actor.profession }}</p>
           <p v-if="actor.birthday">Дата рождения: {{ actor.birthday }}</p>
           <p v-if="actor.birthplace">Место рождения: {{ actor.birthplace }}</p>
-          <a :href="actor.webUrl" about="_blank">Сайт актера: {{ actor.webUrl }}</a>
+          <p>Сайт актера: <a :href="actor.webUrl" about="_blank">{{ actor.webUrl }}</a></p>
           <p v-if="actor.description">({{ actor.description ? actor.description : '' }})</p>
         </div>
       </div>
@@ -81,6 +81,14 @@ export default {
     margin-top: 40px;
     width: 100%;
     grid-column: span 2;
+  }
+  &__text {
+    a {
+      color: var(--color-text);
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
 </style>

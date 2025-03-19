@@ -1,6 +1,6 @@
 <template>
   <div class="actor-life">
-    <div v-if="localPersonalLife.length > 0">
+    <div v-if="localPersonalLife">
       <ul>
         <li v-for="item in localPersonalLife" :key="item.personId">
           <p>Супруг(а): {{ item.name }}</p>

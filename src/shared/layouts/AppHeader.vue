@@ -5,10 +5,10 @@
         <img src="/src/shared/assets/logo.svg" alt="фильмы">
       </router-link>
       <div class="header__menu">
-        <router-link :to="{name: 'premiers'}" >Премьеры</router-link>
-        <router-link :to="{name: 'movies'}" >Фильмы</router-link>
-        <router-link :to="{name: 'contacts'}" >Контакты</router-link>
-        <router-link :to="{name: 'information'}" >Информация</router-link>
+        <router-link :to="{name: 'premiers'}" exact-active-class="active" >Премьеры</router-link>
+        <router-link :to="{name: 'movies'}" exact-active-class="active" >Фильмы</router-link>
+        <router-link :to="{name: 'contacts'}" exact-active-class="active" >Контакты</router-link>
+        <router-link :to="{name: 'information'}" exact-active-class="active" >Информация</router-link>
       </div>
     </div>
   </header>
@@ -48,6 +48,10 @@ export default {
 
         &:hover {
           opacity: 0.5;
+        }
+
+        &.active {
+          color: #4e749c;
         }
       }
     }

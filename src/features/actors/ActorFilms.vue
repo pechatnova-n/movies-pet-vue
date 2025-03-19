@@ -1,6 +1,6 @@
 <template>
   <div class="actor-films">
-    <div v-if="localFilms.length > 0">
+    <div v-if="localFilms">
       <ul class="actor-films__list">
         <li v-for="film in localFilms" :key="film.id" class="actor-films__item">
           <p>Название фильма: {{ film.nameRu || film.nameEn }}</p>
