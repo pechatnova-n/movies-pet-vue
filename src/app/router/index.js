@@ -27,6 +27,7 @@ const router = createRouter({
     {
       path: '/movies',
       name: 'movies',
+      alias: '/',
       component: MoviesPage,
     },
     {
